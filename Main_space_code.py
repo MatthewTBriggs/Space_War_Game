@@ -98,16 +98,16 @@ class Ally(Sprite): # Ally
         self.speed = 8
         self.setheading(random.randint(0,360))
 
-    def move(self): # this sets all "self spees to the below "
+    def move(self): # this sets all "self speed to the below "
         self.fd(self.speed)
 
         # boundarys for the game are being set below.
         if self.xcor() > 290:
-            self.setx(290) # This stops the triangle from flowing outside the lines
+            self.setx(290) # This stops the triangle from flowing outside the frame
             self.lt(60)
 
         if self.xcor() < -290:
-            self.setx (-290) # this stop ths player from going out of the line
+            self.setx (-290) # this stops the  player from going out of the frame
             self.lt(60)
 
         if self.ycor() > 290:
@@ -127,17 +127,17 @@ class Missile(Sprite):
         self.shapesize(stretch_wid=0.3, stretch_len=0.4, outline=None)
         self.speed = 29
         self.status = "ready"
-        self.goto(-1000, 1000) # this moves the missle off the screen.
+        self.goto(-1000, 1000) # This moves the missle off the screen.
 
     def fire(self):
         if self.status == "ready":
-            self.goto(player.xcor(), player.ycor()) # this launches the missl off the white triangle where ever the triangle is
+            self.goto(player.xcor(), player.ycor()) # This launches the missle off the white triangle where ever the triangle is
             self.setheading(player.heading())
             self.status = "firing"
 
     def move(self):
         if self.status == "ready":
-            self.goto(-1000, 1000)  # this moves the missle off the screen.
+            self.goto(-1000, 1000)  # This moves the missle off the screen.
 
         if self.status == "firing":
             self.fd(self.speed)
@@ -206,7 +206,7 @@ class Game():
 
 
 
-#need to create the accutlay game object
+# game object
 game = Game()
 
 #Drawing the border for the game
